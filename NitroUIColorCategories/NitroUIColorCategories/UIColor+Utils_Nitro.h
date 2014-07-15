@@ -50,7 +50,12 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
 
 @interface UIColor( Utils_Nitro )
 
-// Constructors
+/*********************************
+ *
+ * Constructors
+ *
+ ********************************/
+
 +( UIColor * )colorWithByteRed:( uint8_t )r byteGreen:( uint8_t )g byteBlue:( uint8_t )b;
 +( UIColor * )colorWithByteRed:( uint8_t )r byteGreen:( uint8_t )g byteBlue:( uint8_t )b byteAlpha:( uint8_t )a;
 
@@ -119,7 +124,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Since this method does not receive parameters, it is possible to call it as if it
  *  was a getter. Example:
  *
- *  uint8_t r = color.red;
+ *  uint8_t r = color.byteRed;
  *
  *  @return The red component of the color.
  */
@@ -130,7 +135,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Since this method does not receive parameters, it is possible to call it as if it
  *  was a getter. Example:
  *
- *  uint8_t g = color.green;
+ *  uint8_t g = color.byteGreen;
  *
  *  @return The green component of the color.
  */
@@ -141,7 +146,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Since this method does not receive parameters, it is possible to call it as if it
  *  was a getter. Example:
  *
- *  uint8_t b = color.blue;
+ *  uint8_t b = color.byteBlue;
  *
  *  @return The blue component of the color.
  */
@@ -152,7 +157,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Since this method does not receive parameters, it is possible to call it as if it
  *  was a getter. Example:
  *
- *  uint8_t a = color.alpha;
+ *  uint8_t a = color.byteAlpha;
  *
  *  @return The alpha component of the color.
  */
@@ -180,13 +185,18 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Since this method does not receive parameters, it is possible to call it as if it
  *  was a getter. Example:
  *
- *  uint8_t luminance = color.luminance;
+ *  uint8_t luminance = color.byteLuminance;
  *
  *  @return The luminance of the color.
  */
 -( uint8_t )byteLuminance;
 
-// Conversion
+/*********************************
+ *
+ * Conversion
+ *
+ ********************************/
+
 -( NSDictionary * )toColorDictionary;
 -( NSDictionary * )toColorByteComponentsDictionary;
 
