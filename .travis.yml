@@ -1,0 +1,9 @@
+language: objective-c
+before_script:
+    - brew update
+    - brew upgrade xctool
+    - gem install cocoapods
+script
+    - cd NitroUIColorCategories
+    - pod install
+    - xctool -workspace NitroUIColorCategories.xcworkspace -sdk iphonesimulator -scheme NitroUIColorCategories test
