@@ -11,44 +11,69 @@ Examples
 
 **1) Initialization**
 ```objc
-    UIColor *opaqueRed = [UIColor colorWithByteRed: 255
-                                         byteGreen: 0
-                                          byteBlue: 0];
+UIColor *opaqueRed = [UIColor colorWithByteRed: 255
+                                     byteGreen: 0
+                                      byteBlue: 0];
     
-    UIColor *semiTransparentRed = [UIColor colorWithByteRed: 255
-                                                  byteGreen: 0
-                                                   byteBlue: 0
-                                                  byteAlpha: 128];
+UIColor *semiTransparentRed = [UIColor colorWithByteRed: 255
+                                              byteGreen: 0
+                                               byteBlue: 0
+                                              byteAlpha: 128];
     
-    // With hexadecimal numbers
-    UIColor *opaqueBlue = [UIColor colorFromRGBHex: 0x0000FF];
-    UIColor *semiTransparentBlue = [UIColor colorFromRGBAHex: 0x0000FF80];
-    UIColor *blueWithAlphaFirst = [UIColor colorFromARGBHex: 0xFF0000FF];
+// With hexadecimal numbers
+UIColor *opaqueBlue = [UIColor colorFromRGBHex: 0x0000FF];
+UIColor *semiTransparentBlue = [UIColor colorFromRGBAHex: 0x0000FF80];
+UIColor *blueWithAlphaFirst = [UIColor colorFromARGBHex: 0xFF0000FF];
     
-    // With strings
-    UIColor *opaqueGreen = [UIColor colorFromRGBHexString: @"0x00FF00"];
-    UIColor *semiTransparentGreen = [UIColor colorFromRGBAHexString: @"0x00FF0080"];
-    UIColor *greenWithAlphaFirst = [UIColor colorFromARGBHexString: @"0xFF00FF00"];
+// With hexadecimal strings
+UIColor *opaqueGreen = [UIColor colorFromRGBHexString: @"0x00FF00"];
+UIColor *semiTransparentGreen = [UIColor colorFromRGBAHexString: @"0x00FF0080"];
+UIColor *greenWithAlphaFirst = [UIColor colorFromARGBHexString: @"0xFF00FF00"];
     
-    // ... which don't really need the '0x' prefix
-    UIColor *opaqueMagenta = [UIColor colorFromRGBHexString: @"FF00FF"];
-    UIColor *semiTransparentMagenta = [UIColor colorFromRGBAHexString: @"FF00FF80"];
-    UIColor *magentaWithAlphaFirst = [UIColor colorFromARGBHexString: @"FFFF00FF"];
+// ... which don't really need the '0x' prefix
+UIColor *opaqueMagenta = [UIColor colorFromRGBHexString: @"FF00FF"];
+UIColor *semiTransparentMagenta = [UIColor colorFromRGBAHexString: @"FF00FF80"];
+UIColor *magentaWithAlphaFirst = [UIColor colorFromARGBHexString: @"FFFF00FF"];
     
-    // With dictionaries (Ruby? Anyone?)
-    UIColor *opaqueCyanWithFloats = [UIColor colorFromColorComponentsDictionary: @{
-        COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
-        COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
-        COLOR_DICT_COMPONENT_KEY_ALPHA: @( 1.0f )
-    }];
+// With dictionaries (Ruby? Anyone?)
+UIColor *opaqueCyanWithFloats = [UIColor colorFromColorComponentsDictionary: @{
+    COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
+    COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
+    COLOR_DICT_COMPONENT_KEY_ALPHA: @( 1.0f )
+}];
     
-    UIColor *transparentYellowWithBytes = [UIColor colorFromColorByteComponentsDictionary: @{
-        COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
-        COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 )
-    }];
+UIColor *transparentYellowWithBytes = [UIColor colorFromColorByteComponentsDictionary: @{
+    COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
+    COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 )
+}];
 ```
 
 **2) Conversion**
+
+```objc
+// To hexadecimal numbers
+UIColor *red = [UIColor redColor];
+red.toRGBAHex // Will be 0xFF0000FF
+red.toARGBHex // Will be 0xFFFF0000
+
+// To hexadecimal strings
+UIColor *blue = [UIColor blueColor];
+blue.toRGBHexString  // Will be @"0x0000FF"
+blue.toARGBHexString // Will be @"0xFF0000FF"
+blue.toRGBAHexString // Will be @"0x0000FFFF"
+    
+// To dictionaries
+UIColor *transparentWhite = [UIColor colorWithWhite: 1.0f alpha: 0.0f];
+transparentWhite.toColorComponentsDictionary // Will be @{ COLOR_DICT_COMPONENT_KEY_RED: @( 1.0f ),
+                                             //            COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
+                                             //            COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
+                                             //            COLOR_DICT_COMPONENT_KEY_ALPHA: @( 0.0f ) }
+    
+transparentWhite.toColorByteComponentsDictionary // Will be @{ COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
+                                                 //            COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 ),
+                                                 //            COLOR_DICT_COMPONENT_KEY_BLUE: @( 255 ),
+                                                 //            COLOR_DICT_COMPONENT_KEY_ALPHA: @( 0 ) }
+```
 
 **3) Comparison**
 
