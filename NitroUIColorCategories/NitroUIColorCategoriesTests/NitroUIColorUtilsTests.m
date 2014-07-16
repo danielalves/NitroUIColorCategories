@@ -68,13 +68,748 @@
 }
 
 #pragma mark - colorWithByteRed:byteGreen:byteBlue: tests
+
+-( void )test_colorWithByteRed_byteGreen_byteBlue_returns_correct_color
+{
+    UIColor *color = [UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 0];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+
+    color = [UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    
+    color = [UIColor colorWithByteRed: 255 byteGreen: 0 byteBlue: 0];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithByteRed: 0 byteGreen: 255 byteBlue: 0];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 255];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+}
+
+-( void )test_colorWithByteRed_byteGreen_byteBlue_always_returns_opaque_colors
+{
+    UIColor *color = [UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 0];
+    XCTAssertEqual( color.byteAlpha, 255 );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    color = [UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255];
+    XCTAssertEqual( color.byteAlpha, 255 );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    color = [UIColor colorWithByteRed: 255 byteGreen: 0 byteBlue: 0];
+    XCTAssertEqual( color.byteAlpha, 255 );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    color = [UIColor colorWithByteRed: 0 byteGreen: 255 byteBlue: 0];
+    XCTAssertEqual( color.byteAlpha, 255 );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    color = [UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 255];
+    XCTAssertEqual( color.byteAlpha, 255 );
+    XCTAssertEqual( color.alpha, 1.0f );
+}
+
 #pragma mark - colorWithByteRedbyteGreen:byteBlue:byteAlpha: tests
+
+-( void )test_colorWithByteRed_byteGreen_byteBlue_byteAlpha_returns_correct_color
+{
+    UIColor *color = [UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 0 byteAlpha: 255];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255 byteAlpha: 255];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithByteRed: 255 byteGreen: 0 byteBlue: 0 byteAlpha: 255];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithByteRed: 0 byteGreen: 255 byteBlue: 0 byteAlpha: 255];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 255 byteAlpha: 255];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithByteRed: 255 byteGreen: 0 byteBlue: 255 byteAlpha: 128];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, ( CGFloat )( 128.0f / 255.0f ));
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 128 );
+    
+    color = [UIColor colorWithByteRed: 0 byteGreen: 255 byteBlue: 255 byteAlpha: 0];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+}
+
 #pragma mark - colorFromRGBHex: tests
+
+-( void )test_colorFromRGBHex_returns_correct_color
+{
+    UIColor *color = [UIColor colorFromRGBHex: 0x000000];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorFromRGBHex: 0xFFFFFF];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    
+    color = [UIColor colorFromRGBHex: 0xFF0000];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorFromRGBHex: 0x00FF00];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorFromRGBHex: 0x0000FF];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+}
+
+-( void )test_colorFromRGBHex_always_returns_opaque_colors
+{
+    UIColor *color = [UIColor colorFromRGBHex: 0x000000];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromRGBHex: 0xFFFFFF];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromRGBHex: 0xFF0000];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromRGBHex: 0x00FF00];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromRGBHex: 0x0000FF];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+}
+
 #pragma mark - colorFromRGBAHex: tests
 #pragma mark - colorFromARGBHex: tests
+
 #pragma mark - colorWithRGBHexString: tests
+
+-( void )test_colorWithRGBHexString_returns_correct_color
+{
+    UIColor *color = [UIColor colorWithRGBHexString: @"0x000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithRGBHexString: @"0xFFFFFF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0xFF0000"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithRGBHexString: @"0x00FF00"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithRGBHexString: @"0x0000FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+}
+
+-( void )test_colorWithRGBHexString_works_without_prefix
+{
+    UIColor *color = [UIColor colorWithRGBHexString: @"000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithRGBHexString: @"FFFFFF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"FF0000"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithRGBHexString: @"00FF00"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorWithRGBHexString: @"0000FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+}
+
+-( void )test_colorWithRGBHexString_always_returns_opaque_colors
+{
+    UIColor *color = [UIColor colorWithRGBHexString: @"0x000000"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0xFFFFFF"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0xFF0000"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0x00FF00"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0x0000FF"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+}
+
+-( void )test_colorWithRGBHexString_returns_opaque_colors_even_for_AARRGGBB_strings
+{
+    UIColor *color = [UIColor colorWithRGBHexString: @"0x80000000"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0x80FFFFFF"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0xDDFF0000"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0xEE00FF00"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBHexString: @"0x200000FF"];
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+}
+
 #pragma mark - colorWithRGBAHexString: tests
+
+-( void )test_colorWithRGBAHexString_returns_correct_color
+{
+    UIColor *color = [UIColor colorWithRGBAHexString: @"0x000000FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0xFFFFFFFF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0xFF0000FF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0x00FF00FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0x0000FFFF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0xFF00FF00"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0x00000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0x00FFFF80"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 128.0f / 255.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 128 );
+}
+
+-( void )test_colorWithRGBAHexString_works_without_prefix
+{
+    UIColor *color = [UIColor colorWithRGBAHexString: @"000000FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"FFFFFFFF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"FF0000FF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"00FF00FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"0000FFFF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithRGBAHexString: @"FF00FF00"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithRGBAHexString: @"00000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithRGBAHexString: @"00FFFF80"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 128.0f / 255.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 128 );
+}
+
 #pragma mark - colorWithARGBHexString: tests
+
+-( void )test_colorWithARGBHexString_returns_correct_color
+{
+    UIColor *color = [UIColor colorWithARGBHexString: @"0xFF000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"0xFFFFFFFF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"0xFFFF0000"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"0xFF00FF00"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"0xFF0000FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"0x00FF00FF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithARGBHexString: @"0x00000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithARGBHexString: @"0x8000FFFF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 128.0f / 255.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 128 );
+}
+
+-( void )test_colorWithARGBHexString_works_without_prefix
+{
+    UIColor *color = [UIColor colorWithARGBHexString: @"FF000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"FFFFFFFF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"FFFF0000"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"FF00FF00"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"FF0000FF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorWithARGBHexString: @"00FF00FF"];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithARGBHexString: @"00000000"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorWithARGBHexString: @"8000FFFF"];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 128.0f / 255.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 128 );
+}
+
 #pragma mark - colorFromComponentsDictionary: tests
 #pragma mark - colorFromByteComponentsDictionary: tests
 
