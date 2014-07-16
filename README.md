@@ -53,33 +53,62 @@ UIColor *transparentYellowWithBytes = [UIColor colorFromColorByteComponentsDicti
 ```objc
 // To hexadecimal numbers
 UIColor *red = [UIColor redColor];
-red.toRGBAHex // Will be 0xFF0000FF
-red.toARGBHex // Will be 0xFFFF0000
+uint32_t rgba = red.toRGBAHex; // Will be 0xFF0000FF
+uint32_t argb = red.toARGBHex; // Will be 0xFFFF0000
 
 // To hexadecimal strings
 UIColor *blue = [UIColor blueColor];
-blue.toRGBHexString  // Will be @"0x0000FF"
-blue.toARGBHexString // Will be @"0xFF0000FF"
-blue.toRGBAHexString // Will be @"0x0000FFFF"
+NSString *rgbString = blue.toRGBHexString;   // Will be @"0x0000FF"
+NSString *argbString = blue.toARGBHexString; // Will be @"0xFF0000FF"
+NSString *rgbaString = blue.toRGBAHexString; // Will be @"0x0000FFFF"
     
 // To dictionaries
 UIColor *transparentWhite = [UIColor colorWithWhite: 1.0f alpha: 0.0f];
-transparentWhite.toColorComponentsDictionary // Will be @{ COLOR_DICT_COMPONENT_KEY_RED: @( 1.0f ),
-                                             //            COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
-                                             //            COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
-                                             //            COLOR_DICT_COMPONENT_KEY_ALPHA: @( 0.0f ) }
-    
-transparentWhite.toColorByteComponentsDictionary // Will be @{ COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
-                                                 //            COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 ),
-                                                 //            COLOR_DICT_COMPONENT_KEY_BLUE: @( 255 ),
-                                                 //            COLOR_DICT_COMPONENT_KEY_ALPHA: @( 0 ) }
+
+// Will be @{ COLOR_DICT_COMPONENT_KEY_RED: @( 1.0f ),
+//            COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
+//            COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
+//            COLOR_DICT_COMPONENT_KEY_ALPHA: @( 0.0f ) }
+NSDictionary *components = transparentWhite.toColorComponentsDictionary;
+
+// Will be @{ COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
+//            COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 ),
+//            COLOR_DICT_COMPONENT_KEY_BLUE: @( 255 ),
+//            COLOR_DICT_COMPONENT_KEY_ALPHA: @( 0 ) }
+NSDictionary *byteComponents = transparentWhite.toColorByteComponentsDictionary;
 ```
 
 **3) Comparison**
 
 **4) RGBA components getters**
 
+```objc
+// Get the color red component as byte or float
+UIColor *color = // Any color ...
+CGFloat redComponent = color.red;
+uint8_t byteRedComponent = color.byteRed;
+    
+// Get the color green component as byte or float
+CGFloat greenComponent = color.green;
+uint8_t byteGreenComponent = color.byteGreen;
+    
+// Get the color blue component as byte or float
+CGFloat blueComponent = color.blue;
+uint8_t byteBlueComponent = color.byteBlue;
+    
+// Get the color alpha component as byte or float
+CGFloat alphaComponent = color.alpha;
+uint8_t byteAlphaComponent = color.byteAlpha;
+```
+
 **5) Luminance getters**
+
+```objc
+// Get the color luminance as byte or float
+UIColor *color = // Any color ...
+CGFloat luminance = color.luminance;
+uint8_t  byteLuminance = color.byteLuminance;
+```
 
 Requirements
 ------------
