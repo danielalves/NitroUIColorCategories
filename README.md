@@ -36,12 +36,16 @@ Examples
     UIColor *magentaWithAlphaFirst = [UIColor colorFromARGBHexString: @"FFFF00FF"];
     
     // With dictionaries (Ruby? Anyone?)
-    UIColor *opaqueCyanWithFloats = [UIColor colorFromColorComponentsDictionary: @{ COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
-                                                                                    COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
-                                                                                    COLOR_DICT_COMPONENT_KEY_ALPHA: @( 1.0f ) }];
+    UIColor *opaqueCyanWithFloats = [UIColor colorFromColorComponentsDictionary: @{
+        COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
+        COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
+        COLOR_DICT_COMPONENT_KEY_ALPHA: @( 1.0f )
+    }];
     
-    UIColor *transparentYellowWithBytes = [UIColor colorFromColorByteComponentsDictionary: @{ COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
-                                                                                              COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 ) }];
+    UIColor *transparentYellowWithBytes = [UIColor colorFromColorByteComponentsDictionary: @{
+        COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
+        COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 )
+    }];
 ```
 
 **2) Conversion**
