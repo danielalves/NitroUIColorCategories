@@ -73,7 +73,7 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
 	return [self colorWithByteRed: r byteGreen: g byteBlue: b byteAlpha: a];
 }
 
-+( UIColor * )colorWithRGBHexString:( NSString * )rgbStr
++( UIColor * )colorFromRGBHexString:( NSString * )rgbStr
 {
     if( [rgbStr length] == 0 )
 		return nil;
@@ -82,7 +82,7 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
     return [UIColor colorFromARGBHex: argb | 0xFF000000];
 }
 
-+( UIColor * )colorWithRGBAHexString:( NSString * )rgbaStr
++( UIColor * )colorFromRGBAHexString:( NSString * )rgbaStr
 {
     if( [rgbaStr length] == 0 )
 		return nil;
@@ -91,7 +91,7 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
     return [UIColor colorFromRGBAHex: rgba];
 }
 
-+( UIColor * )colorWithARGBHexString:( NSString * )argbStr
++( UIColor * )colorFromARGBHexString:( NSString * )argbStr
 {
     if( [argbStr length] == 0 )
 		return nil;
@@ -100,7 +100,7 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
     return [UIColor colorFromARGBHex: argb];
 }
 
-+( UIColor * )colorFromComponentsDictionary:( NSDictionary * )colorDict
++( UIColor * )colorFromColorComponentsDictionary:( NSDictionary * )colorDict
 {
     CGFloat r = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] floatValue], 0.0f, 1.0f );
     CGFloat g = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] floatValue], 0.0f, 1.0f );
@@ -109,7 +109,7 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
     return [self colorWithRed: r green: g blue: b alpha: a];
 }
 
-+( UIColor * )colorFromByteComponentsDictionary:( NSDictionary * )colorDict
++( UIColor * )colorFromColorByteComponentsDictionary:( NSDictionary * )colorDict
 {
     uint8_t r = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] unsignedCharValue];
     uint8_t g = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] unsignedCharValue];

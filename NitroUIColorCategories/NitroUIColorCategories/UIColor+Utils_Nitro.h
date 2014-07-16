@@ -126,7 +126,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *
  *  @return A new UIColor object with the specified color components.
  */
-+( UIColor * )colorWithRGBHexString:( NSString * )rgbStr;
++( UIColor * )colorFromRGBHexString:( NSString * )rgbStr;
 
 /**
  *  Creates a new UIColor object with the specified color components.
@@ -136,7 +136,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *
  *  @return A new UIColor object with the specified color components.
  */
-+( UIColor * )colorWithRGBAHexString:( NSString * )rgbaStr;
++( UIColor * )colorFromRGBAHexString:( NSString * )rgbaStr;
 
 /**
  *  Creates a new UIColor object with the specified color components.
@@ -146,7 +146,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *
  *  @return A new UIColor object with the specified color components.
  */
-+( UIColor * )colorWithARGBHexString:( NSString * )argbStr;
++( UIColor * )colorFromARGBHexString:( NSString * )argbStr;
 
 /**
  *  Creates a new UIColor object with the specified color components.
@@ -158,7 +158,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *
  *  @return A new UIColor object with the specified color components.
  */
-+( UIColor * )colorFromComponentsDictionary:( NSDictionary * )colorDict;
++( UIColor * )colorFromColorComponentsDictionary:( NSDictionary * )colorDict;
 
 /**
  *  Creates a new UIColor object with the specified color components.
@@ -169,7 +169,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *
  *  @return A new UIColor object with the specified color components.
  */
-+( UIColor * )colorFromByteComponentsDictionary:( NSDictionary * )colorDict;
++( UIColor * )colorFromColorByteComponentsDictionary:( NSDictionary * )colorDict;
 
 /*********************************
  *
