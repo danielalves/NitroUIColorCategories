@@ -80,11 +80,22 @@ NSDictionary *byteComponents = transparentWhite.toColorByteComponentsDictionary;
 
 **3) Comparison**
 
+```objc
+// Compare colors by their components
+UIColor *white = [UIColor whiteColor];
+[white componentsAreEqualToComponentsOfColor: [UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255]]; // YES
+[white componentsAreEqualToComponentsOfColor: [UIColor colorWithRed: 1.0f green: 1.0f blue: 1.0f alpha: 1.0f]]; // YES
+[white componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 1.0f alpha: 1.0f]]; // YES
+[white componentsAreEqualToComponentsOfColor: [UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255 byteAlpha: 0]]; // NO
+[white componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 1.0f alpha: 0.0f]]; // NO
+// ...
+```
+
 **4) RGBA components getters**
 
 ```objc
 // Get the color red component as byte or float
-UIColor *color = // Any color ...
+UIColor *color = /* Any color */;
 CGFloat redComponent = color.red;
 uint8_t byteRedComponent = color.byteRed;
     
@@ -105,7 +116,7 @@ uint8_t byteAlphaComponent = color.byteAlpha;
 
 ```objc
 // Get the color luminance as byte or float
-UIColor *color = // Any color ...
+UIColor *color = /* Any color */;
 CGFloat luminance = color.luminance;
 uint8_t  byteLuminance = color.byteLuminance;
 ```
