@@ -219,6 +219,16 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
     return [NSString stringWithFormat: @"0x%08X", self.toARGBHex];
 }
 
+#pragma mark - Comparison
+
+-( BOOL )componentsAreEqualToComponentsOfColor:( UIColor * )other
+{
+    return self.byteRed == other.byteRed
+           && self.byteGreen == other.byteGreen
+           && self.byteBlue == other.byteBlue
+           && self.byteAlpha == other.byteAlpha;
+}
+
 #pragma mark - Helpers
 
 -( CGFloat )getComponent:( uint8_t ) index

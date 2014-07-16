@@ -1810,4 +1810,39 @@
     XCTAssertEqualObjects( argbHexString, expected );
 }
 
+#pragma mark - componentsAreEqualToComponentsOfColor: tests
+
+-( void )test_colorComponentsAreEqualToColorComponentsOfColor_compares_color_components
+{
+    XCTAssertTrue( [[UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 0] componentsAreEqualToComponentsOfColor: [UIColor blackColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 0 byteAlpha: 255] componentsAreEqualToComponentsOfColor: [UIColor blackColor]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 0.0f green: 0.0f blue: 0.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor blackColor]] );
+    XCTAssertTrue( [[UIColor colorWithWhite: 0.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor blackColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 0 byteAlpha: 0] componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 0.0f alpha: 0.0f]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 0.0f green: 0.0f blue: 0.0f alpha: 0.5f] componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 0.0f alpha: 0.5f]] );
+    
+    XCTAssertTrue( [[UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255] componentsAreEqualToComponentsOfColor: [UIColor whiteColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255 byteAlpha: 255] componentsAreEqualToComponentsOfColor: [UIColor whiteColor]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 1.0f green: 1.0f blue: 1.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor whiteColor]] );
+    XCTAssertTrue( [[UIColor colorWithWhite: 1.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor whiteColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 255 byteAlpha: 0] componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 1.0f alpha: 0.0f]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 1.0f green: 1.0f blue: 1.0f alpha: 0.7f] componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 1.0f alpha: 0.7f]] );
+    
+    XCTAssertTrue( [[UIColor colorWithByteRed: 255 byteGreen: 0 byteBlue: 0] componentsAreEqualToComponentsOfColor: [UIColor redColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 255 byteGreen: 0 byteBlue: 0 byteAlpha: 255] componentsAreEqualToComponentsOfColor: [UIColor redColor]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 1.0f green: 0.0f blue: 0.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor redColor]] );
+    
+    XCTAssertTrue( [[UIColor colorWithByteRed: 0 byteGreen: 255 byteBlue: 0] componentsAreEqualToComponentsOfColor: [UIColor greenColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 0 byteGreen: 255 byteBlue: 0 byteAlpha: 255] componentsAreEqualToComponentsOfColor: [UIColor greenColor]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 0.0f green: 1.0f blue: 0.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor greenColor]] );
+    
+    XCTAssertTrue( [[UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 255] componentsAreEqualToComponentsOfColor: [UIColor blueColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 0 byteGreen: 0 byteBlue: 255 byteAlpha: 255] componentsAreEqualToComponentsOfColor: [UIColor blueColor]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 0.0f green: 0.0f blue: 1.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor blueColor]] );
+    
+    XCTAssertTrue( [[UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 0] componentsAreEqualToComponentsOfColor: [UIColor yellowColor]] );
+    XCTAssertTrue( [[UIColor colorWithByteRed: 255 byteGreen: 255 byteBlue: 0 byteAlpha: 255] componentsAreEqualToComponentsOfColor: [UIColor yellowColor]] );
+    XCTAssertTrue( [[UIColor colorWithRed: 1.0f green: 1.0f blue: 0.0f alpha: 1.0f] componentsAreEqualToComponentsOfColor: [UIColor yellowColor]] );
+}
+
 @end

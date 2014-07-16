@@ -374,4 +374,20 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  */
 -( NSString * )toARGBHexString;
 
+/*********************************
+ *
+ * Comparison
+ *
+ ********************************/
+
+/**
+ *  Returns if the color components of each color are equal
+ *
+ *  @param other To color whose color components will be compared
+ *               to this color components.
+ *
+ *  @return YES if all components are equal. NO otherwise.
+ */
+-( BOOL )componentsAreEqualToComponentsOfColor:( UIColor * )other;
+
 @end
