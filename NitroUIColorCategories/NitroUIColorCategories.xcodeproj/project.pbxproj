@@ -442,7 +442,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "NitroUIColorCategoriesTests/NitroUIColorCategoriesTests-Info.plist";
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -459,7 +459,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "NitroUIColorCategoriesTests/NitroUIColorCategoriesTests-Info.plist";
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
