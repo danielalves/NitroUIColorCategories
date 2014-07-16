@@ -22,6 +22,8 @@
 #define WA_WHITE_COMPONENT_INDEX	0
 #define WA_ALPHA_COMPONENT_INDEX	1
 
+#pragma mark - Constants
+
 NSString * const COLOR_DICT_COMPONENT_KEY_RED    = @"r";
 NSString * const COLOR_DICT_COMPONENT_KEY_GREEN  = @"g";
 NSString * const COLOR_DICT_COMPONENT_KEY_BLUE   = @"b";
@@ -40,16 +42,10 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
 
 +( UIColor * )colorWithByteRed:( uint8_t )r byteGreen:( uint8_t )g byteBlue:( uint8_t )b byteAlpha:( uint8_t )a
 {
-    return [UIColor colorWithRed: ( float )r / 255.0f  green: ( float )g / 255.0f blue: ( float )b / 255.0f alpha: ( float )a / 255.0f];
-}
-
-+( UIColor * )colorFromByteComponentsDictionary:( NSDictionary * )colorDict
-{
-    uint8_t r = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] unsignedCharValue];
-    uint8_t g = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] unsignedCharValue];
-    uint8_t b = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_BLUE] unsignedCharValue];
-    uint8_t a = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_ALPHA] unsignedCharValue];
-    return [self colorWithByteRed: r byteGreen: g byteBlue: b byteAlpha: a];
+    return [UIColor colorWithRed: ( CGFloat )r / 255.0f
+                           green: ( CGFloat )g / 255.0f
+                            blue: ( CGFloat )b / 255.0f
+                           alpha: ( CGFloat )a / 255.0f];
 }
 
 +( UIColor * )colorFromRGBHex:( uint32_t )rgb
@@ -102,6 +98,24 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
     
     uint32_t argb = [self parseColorFromString: argbStr];
     return [UIColor colorFromARGBHex: argb];
+}
+
++( UIColor * )colorFromComponentsDictionary:( NSDictionary * )colorDict
+{
+    CGFloat r = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] floatValue], 0.0f, 1.0f );
+    CGFloat g = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] floatValue], 0.0f, 1.0f );
+    CGFloat b = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_BLUE] floatValue], 0.0f, 1.0f );
+    uint8_t a = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_ALPHA] floatValue], 0.0f, 1.0f );
+    return [self colorWithRed: r green: g blue: b alpha: a];
+}
+
++( UIColor * )colorFromByteComponentsDictionary:( NSDictionary * )colorDict
+{
+    uint8_t r = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] unsignedCharValue];
+    uint8_t g = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] unsignedCharValue];
+    uint8_t b = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_BLUE] unsignedCharValue];
+    uint8_t a = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_ALPHA] unsignedCharValue];
+    return [self colorWithByteRed: r byteGreen: g byteBlue: b byteAlpha: a];
 }
 
 #pragma mark - UIColor Components Getters
@@ -160,7 +174,17 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
 
 #pragma mark - Conversion
 
--( NSDictionary * )toColorDictionary
+-( uint32_t )toRGBAHex
+{
+    return RGBA_TO_HEX( self.byteRed, self.byteGreen, self.byteBlue, self.byteAlpha );
+}
+
+-( uint32_t )toARGBHex
+{
+    return ARGB_TO_HEX( self.byteAlpha, self.byteRed, self.byteGreen, self.byteBlue );
+}
+
+-( NSDictionary * )toColorComponentsDictionary
 {
     return @{
         COLOR_DICT_COMPONENT_KEY_RED: @( self.red ),
@@ -182,17 +206,17 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
 
 -( NSString * )toRGBHexString
 {
-    return [NSString stringWithFormat: @"0x%02d%02d%02d", self.byteRed, self.byteGreen, self.byteBlue];
+    return [NSString stringWithFormat: @"0x%02X%02X%02X", self.byteRed, self.byteGreen, self.byteBlue];
 }
 
 -( NSString * )toRGBAHexString
 {
-    return [NSString stringWithFormat: @"0x%02d%02d%02d%02d", self.byteRed, self.byteGreen, self.byteBlue, self.byteAlpha];
+    return [NSString stringWithFormat: @"0x%08X", self.toRGBAHex];
 }
 
 -( NSString * )toARGBHexString
 {
-    return [NSString stringWithFormat: @"0x%02d%02d%02d%02d", self.byteAlpha, self.byteRed, self.byteGreen, self.byteBlue];
+    return [NSString stringWithFormat: @"0x%08X", self.toARGBHex];
 }
 
 #pragma mark - Helpers

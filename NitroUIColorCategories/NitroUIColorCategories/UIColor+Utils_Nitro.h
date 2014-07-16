@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+//
+// Color Components Dictionary Keys
+//
 FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_RED;
 FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_GREEN;
 FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_BLUE;
@@ -48,6 +51,9 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
 											   |  ( ( uint8_t )alpha & 0xFF ))
 #endif
 
+/**
+ *  Initialization, conversion, RGBA component getters and luminance utilities for iOS UIColor type
+ */
 @interface UIColor( Utils_Nitro )
 
 /*********************************
@@ -56,18 +62,109 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *
  ********************************/
 
+/**
+*  Creates a new UIColor object with the specified color components. The alpha
+*  component will be equal to 255
+*
+*  @param r The red component of the color in the interval [0, 255].
+*  @param g The green component of the color in the interval [0, 255].
+*  @param b The blue component of the color in the interval [0, 255].
+*
+*  @return A new UIColor object with the specified color components.
+*/
 +( UIColor * )colorWithByteRed:( uint8_t )r byteGreen:( uint8_t )g byteBlue:( uint8_t )b;
+
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *
+ *  @param r The red component of the color in the interval [0, 255].
+ *  @param g The green component of the color in the interval [0, 255].
+ *  @param b The blue component of the color in the interval [0, 255].
+ *  @param a The alpha component of the color in the interval [0, 255].
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
 +( UIColor * )colorWithByteRed:( uint8_t )r byteGreen:( uint8_t )g byteBlue:( uint8_t )b byteAlpha:( uint8_t )a;
 
-+( UIColor * )colorFromDictionary:( NSDictionary * )colorDict;
-
+/**
+ *  Creates a new UIColor object with the specified color components. The alpha
+ *  component will be equal to 1.0.
+ *
+ *
+ *  @param rgb A number which hexadecimal value represents the color in the format RRGGBB. The most significant 
+ *             byte is ignored.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
 +( UIColor * )colorFromRGBHex:( uint32_t )rgb;
+
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *
+ *  @param rgba A number which hexadecimal value represents the color in the format RRGGBBAA.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
 +( UIColor * )colorFromRGBAHex:( uint32_t )rgba;
+
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *
+ *  @param argb A number which hexadecimal value represents the color in the format AARRGGBB.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
 +( UIColor * )colorFromARGBHex:( uint32_t )argb;
 
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *
+ *  @param rgbStr A string with the format 0xRRGGBB representing the color hexadecimal number.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
 +( UIColor * )colorWithRGBHexString:( NSString * )rgbStr;
+
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *
+ *  @param rgbaStr A string with the format 0xRRGGBBAA representing the color hexadecimal number.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
 +( UIColor * )colorWithRGBAHexString:( NSString * )rgbaStr;
+
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *
+ *  @param argbStr A string with the format 0xAARRGGBB representing the color hexadecimal number.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
 +( UIColor * )colorWithARGBHexString:( NSString * )argbStr;
+
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *  Values below 0.0 are interpreted as 0.0, and values above 1.0 are interpreted as 1.0.
+ *
+ *  @param colorDict A dictionary containing one key for each color component. All values must be of float type
+ *                   in the range [0.0, 1.0]. The components must be indexed with the constants COLOR_DICT_COMPONENT_KEY_RED,
+ *                   COLOR_DICT_COMPONENT_KEY_GREEN, COLOR_DICT_COMPONENT_KEY_BLUE and COLOR_DICT_COMPONENT_KEY_ALPHA.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
++( UIColor * )colorFromComponentsDictionary:( NSDictionary * )colorDict;
+
+/**
+ *  Creates a new UIColor object with the specified color components.
+ *
+ *  @param colorDict A dictionary containing one key for each color component. All values must be of uint8_t type
+ *                   in the range [0, 255]. The components must be indexed with the constants COLOR_DICT_COMPONENT_KEY_RED,
+ *                   COLOR_DICT_COMPONENT_KEY_GREEN, COLOR_DICT_COMPONENT_KEY_BLUE and COLOR_DICT_COMPONENT_KEY_ALPHA.
+ *
+ *  @return A new UIColor object with the specified color components.
+ */
++( UIColor * )colorFromByteComponentsDictionary:( NSDictionary * )colorDict;
 
 /*********************************
  *
@@ -197,11 +294,76 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *
  ********************************/
 
--( NSDictionary * )toColorDictionary;
+/**
+ *  Returns an RGBA hexadecimal color represented as an uint32_t.
+ *
+ *  @return An RGBA hexadecimal color represented as an uint32_t.
+ */
+-( uint32_t )toRGBAHex;
+
+/**
+ *  Returns an ARGB hexadecimal color represented as an uint32_t.
+ *
+ *  @return An ARGB hexadecimal color represented as an uint32_t.
+ */
+-( uint32_t )toARGBHex;
+
+/**
+ *  Returns a dictionary containing one key for each RGBA component of the color.
+ *  All components are float values in the interval [0.0, 1.0].
+ *  For indexing the dictionary, use the constants:
+ *      - COLOR_DICT_COMPONENT_KEY_RED
+ *      - COLOR_DICT_COMPONENT_KEY_GREEN
+ *      - COLOR_DICT_COMPONENT_KEY_BLUE
+ *      - COLOR_DICT_COMPONENT_KEY_ALPHA
+ *
+ *  @return A dictionary containing one key for each RGBA component of the color.
+ */
+-( NSDictionary * )toColorComponentsDictionary;
+
+/**
+ *  Returns a dictionary containing one key for each RGBA component of the color.
+ *  All components are uint8_t values in the interval [0, 255].
+ *  For indexing the dictionary, use the constants:
+ *      - COLOR_DICT_COMPONENT_KEY_RED
+ *      - COLOR_DICT_COMPONENT_KEY_GREEN
+ *      - COLOR_DICT_COMPONENT_KEY_BLUE
+ *      - COLOR_DICT_COMPONENT_KEY_ALPHA
+ *
+ *  @return A dictionary containing one key for each RGBA component of the color.
+ */
 -( NSDictionary * )toColorByteComponentsDictionary;
 
+/**
+ *  Returns a string with the format 0xRRGGBB, where:
+ *      - RR is the red component hexadecimal representation
+ *      - GG is the green component hexadecimal representation
+ *      - BB is the blue component hexadecimal representation
+ *
+ *  @return A string with the format 0xRRGGBB
+ */
 -( NSString * )toRGBHexString;
+
+/**
+ *  Returns a string with the format 0xRRGGBBAA, where:
+ *      - RR is the red component hexadecimal representation
+ *      - GG is the green component hexadecimal representation
+ *      - BB is the blue component hexadecimal representation
+ *      - AA is the alpha component hexadecimal representation
+ *
+ *  @return A string with the format 0xRRGGBBAA.
+ */
 -( NSString * )toRGBAHexString;
+
+/**
+ *  Returns a string with the format 0xAARRGGBB, where:
+ *      - AA is the alpha component hexadecimal representation
+ *      - RR is the red component hexadecimal representation
+ *      - GG is the green component hexadecimal representation
+ *      - BB is the blue component hexadecimal representation
+ *
+ *  @return A string with the format 0xAARRGGBB.
+ */
 -( NSString * )toARGBHexString;
 
 @end
