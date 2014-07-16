@@ -33,6 +33,51 @@
 
 @implementation NitroUIColorCategoriesTests
 
+#pragma mark - RGBA_TO_HEX macro tests
+
+-( void )test_RGBA_TO_HEX_returns_rgba_color_hexadecimal_value
+{
+    XCTAssertEqual( RGBA_TO_HEX(   0,   0,   0, 255 ), 0x000000FF );
+    XCTAssertEqual( RGBA_TO_HEX( 255, 255, 255, 255 ), 0xFFFFFFFF );
+    
+    XCTAssertEqual( RGBA_TO_HEX( 255,   0,   0, 255 ), 0xFF0000FF );
+    XCTAssertEqual( RGBA_TO_HEX(   0, 255,   0, 255 ), 0x00FF00FF );
+    XCTAssertEqual( RGBA_TO_HEX(   0,   0, 255, 255 ), 0x0000FFFF );
+    
+    XCTAssertEqual( RGBA_TO_HEX( 255,   0, 255, 128 ), 0xFF00FF80 );
+    XCTAssertEqual( RGBA_TO_HEX(   0, 255, 255,   0 ), 0x00FFFF00 );
+    
+    XCTAssertEqual( RGBA_TO_HEX(   0,   0,   0,   0 ), 0x00000000 );
+}
+
+#pragma mark - ARGB_TO_HEX macro tests
+
+-( void )test_ARGB_TO_HEX_returns_rgba_color_hexadecimal_value
+{
+    XCTAssertEqual( ARGB_TO_HEX( 255,   0,   0,   0 ), 0xFF000000 );
+    XCTAssertEqual( ARGB_TO_HEX( 255, 255, 255, 255 ), 0xFFFFFFFF );
+    
+    XCTAssertEqual( ARGB_TO_HEX( 255, 255,   0,   0 ), 0xFFFF0000 );
+    XCTAssertEqual( ARGB_TO_HEX( 255,   0, 255,   0 ), 0xFF00FF00 );
+    XCTAssertEqual( ARGB_TO_HEX( 255,   0,   0, 255 ), 0xFF0000FF );
+    
+    XCTAssertEqual( ARGB_TO_HEX( 128, 255,   0, 255 ), 0x80FF00FF );
+    XCTAssertEqual( ARGB_TO_HEX(   0,   0, 255, 255 ), 0x0000FFFF );
+    
+    XCTAssertEqual( ARGB_TO_HEX(   0,   0,   0,   0 ), 0x00000000 );
+}
+
+#pragma mark - colorWithByteRed:byteGreen:byteBlue: tests
+#pragma mark - colorWithByteRedbyteGreen:byteBlue:byteAlpha: tests
+#pragma mark - colorFromRGBHex: tests
+#pragma mark - colorFromRGBAHex: tests
+#pragma mark - colorFromARGBHex: tests
+#pragma mark - colorWithRGBHexString: tests
+#pragma mark - colorWithRGBAHexString: tests
+#pragma mark - colorWithARGBHexString: tests
+#pragma mark - colorFromComponentsDictionary: tests
+#pragma mark - colorFromByteComponentsDictionary: tests
+
 #pragma mark - red tests
 
 -( void )test_red_returns_color_red_component
