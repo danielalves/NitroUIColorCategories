@@ -135,6 +135,14 @@ CGFloat luminance = color.luminance;
 uint8_t  byteLuminance = color.byteLuminance;
 ```
 
+**6) Utilities**
+
+```objc
+// Helper macros to create colors RGBA or ARGB hexadecimal values
+uint32_t magentaHex = RGBA_TO_HEX( 255, 0, 255, 255 ); // Will be 0xFF00FFFF
+uint32_t magentaHexWithAlphaFirst = ARGB_TO_HEX( 255, 255, 0, 255 ); // Will be 0xFFFF00FF
+```
+
 Requirements
 ------------
 
