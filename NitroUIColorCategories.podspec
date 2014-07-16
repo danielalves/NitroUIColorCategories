@@ -10,4 +10,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source_files  = "NitroUIColorCategories/NitroUIColorCategories"
   s.requires_arc = true
+  s.dependency 'NitroMath'
+  s.dependency 'NitroNSDictionaryCategories'
 end
