@@ -16,7 +16,7 @@
 
 #pragma mark - Helper Macros
 
-#define COLOR_COMPONENTS_DICT_FOR( red, green, blue, alpha ) \
+#define COLOR_COMPONENTS_DICT_WITH( red, green, blue, alpha ) \
 @{                                                  \
     COLOR_DICT_COMPONENT_KEY_RED: @( red ),         \
     COLOR_DICT_COMPONENT_KEY_GREEN: @( green ),     \
@@ -994,7 +994,352 @@
 }
 
 #pragma mark - colorFromColorComponentsDictionary: tests
+
+-( void )test_colorFromColorComponentsDictionary_returns_correct_color
+{
+    UIColor *color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0.0f, 0.0f, 0.0f, 1.0f )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.0f, 1.0f, 1.0f )];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 0.0f, 0.0f, 1.0f )];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0.0f, 1.0f, 0.0f, 1.0f )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0.0f, 0.0f, 1.0f, 1.0f )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 0.0f, 1.0f, 0.0f )];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0.0f, 0.0f, 0.0f, 0.0f )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0.0f, 1.0f, 1.0f, 0.5f )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.5f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, ( uint8_t )( 255 * 0.5f ) );
+}
+
+-( void )test_colorFromColorComponentsDictionary_sets_missing_components_as_0
+{
+    UIColor *color = [UIColor colorFromColorComponentsDictionary: @{
+                                                                        COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
+                                                                        COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
+                                                                        COLOR_DICT_COMPONENT_KEY_ALPHA: @( 1.0f )
+                                                                  }];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.byteRed, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: @{
+                                                               COLOR_DICT_COMPONENT_KEY_RED: @( 1.0f ),
+                                                               COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f ),
+                                                               COLOR_DICT_COMPONENT_KEY_ALPHA: @( 1.0f )
+                                                         }];
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.byteGreen, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: @{
+                                                               COLOR_DICT_COMPONENT_KEY_RED: @( 1.0f ),
+                                                               COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
+                                                               COLOR_DICT_COMPONENT_KEY_ALPHA: @( 1.0f )
+                                                         }];
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: @{
+                                                               COLOR_DICT_COMPONENT_KEY_RED: @( 1.0f ),
+                                                               COLOR_DICT_COMPONENT_KEY_GREEN: @( 1.0f ),
+                                                               COLOR_DICT_COMPONENT_KEY_BLUE: @( 1.0f )
+                                                         }];
+    XCTAssertEqual( color.alpha, 0.0f );
+    XCTAssertEqual( color.byteAlpha, 0 );
+}
+
+-( void )test_colorFromColorComponentsDictionary_sets_values_below_0_as_0
+{
+    UIColor *color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( -2.0f, 1.0f, 1.0f, 1.0f )];
+    
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.byteRed, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, -0.1f, 1.0f, 1.0f )];
+    
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.byteGreen, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.0f, -0.00005f, 1.0f )];
+    
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.0f, 1.0f, -672.88f )];
+    
+    XCTAssertEqual( color.alpha, 0.0f );
+    XCTAssertEqual( color.byteAlpha, 0 );
+}
+
+-( void )test_colorFromColorComponentsDictionary_sets_values_above_1_as_1
+{
+    UIColor *color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 2.0f, 1.0f, 1.0f, 1.0f )];
+    
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.byteRed, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.1f, 1.0f, 1.0f )];
+    
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.byteGreen, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.0f, 1.00005f, 1.0f )];
+    
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.byteBlue, 255 );
+    
+    color = [UIColor colorFromColorComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.0f, 1.0f, 672.88f )];
+    
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+}
+
 #pragma mark - colorFromColorByteComponentsDictionary: tests
+
+-( void )test_colorFromColorByteComponentsDictionary_returns_correct_color
+{
+    UIColor *color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0, 0, 0, 255 )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 255, 255, 255 )];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 0, 0, 255 )];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0, 255, 0, 255 )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0, 0, 255, 255 )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 1.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 0, 255, 0 )];
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 255 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0, 0, 0, 0 )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.alpha, 0.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 0 );
+    XCTAssertEqual( color.byteBlue, 0 );
+    XCTAssertEqual( color.byteAlpha, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 0, 255, 255, 128 )];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.alpha, 128.0f / 255.0f );
+    
+    XCTAssertEqual( color.byteRed, 0 );
+    XCTAssertEqual( color.byteGreen, 255 );
+    XCTAssertEqual( color.byteBlue, 255 );
+    XCTAssertEqual( color.byteAlpha, 128 );
+}
+
+-( void )test_colorFromColorByteComponentsDictionary_sets_missing_components_as_0
+{
+    UIColor *color = [UIColor colorFromColorByteComponentsDictionary: @{
+                                                                           COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 ),
+                                                                           COLOR_DICT_COMPONENT_KEY_BLUE: @( 255 ),
+                                                                           COLOR_DICT_COMPONENT_KEY_ALPHA: @( 255 )
+                                                                      }];
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.byteRed, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: @{
+                                                                  COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
+                                                                  COLOR_DICT_COMPONENT_KEY_BLUE: @( 255 ),
+                                                                  COLOR_DICT_COMPONENT_KEY_ALPHA: @( 255 )
+                                                             }];
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.byteGreen, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: @{
+                                                                   COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
+                                                                   COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 ),
+                                                                   COLOR_DICT_COMPONENT_KEY_ALPHA: @( 255 )
+                                                             }];
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: @{
+                                                                  COLOR_DICT_COMPONENT_KEY_RED: @( 255 ),
+                                                                  COLOR_DICT_COMPONENT_KEY_GREEN: @( 255 ),
+                                                                  COLOR_DICT_COMPONENT_KEY_BLUE: @( 255 )
+                                                             }];
+    XCTAssertEqual( color.alpha, 0.0f );
+    XCTAssertEqual( color.byteAlpha, 0 );
+}
+
+-( void )test_colorFromColorByteComponentsDictionary_sets_values_below_0_as_0
+{
+    UIColor *color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( -2, 255, 255, 255 )];
+    
+    XCTAssertEqual( color.red, 0.0f );
+    XCTAssertEqual( color.byteRed, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, -300, 255, 255 )];
+    
+    XCTAssertEqual( color.green, 0.0f );
+    XCTAssertEqual( color.byteGreen, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 255, -1, 255 )];
+    
+    XCTAssertEqual( color.blue, 0.0f );
+    XCTAssertEqual( color.byteBlue, 0 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 255, 255, -1873 )];
+    
+    XCTAssertEqual( color.alpha, 0.0f );
+    XCTAssertEqual( color.byteAlpha, 0 );
+}
+
+-( void )test_colorFromColorByteComponentsDictionary_sets_values_above_255_as_255
+{
+    UIColor *color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 256, 255, 255, 255 )];
+    
+    XCTAssertEqual( color.red, 1.0f );
+    XCTAssertEqual( color.byteRed, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 300, 255, 255 )];
+    
+    XCTAssertEqual( color.green, 1.0f );
+    XCTAssertEqual( color.byteGreen, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 255, 1000, 255 )];
+    
+    XCTAssertEqual( color.blue, 1.0f );
+    XCTAssertEqual( color.byteBlue, 255 );
+    
+    color = [UIColor colorFromColorByteComponentsDictionary: COLOR_COMPONENTS_DICT_WITH( 255, 255, 255, 9911 )];
+    
+    XCTAssertEqual( color.alpha, 1.0f );
+    XCTAssertEqual( color.byteAlpha, 255 );
+}
 
 #pragma mark - red tests
 
@@ -1321,31 +1666,31 @@
 -( void )test_toColorComponentsDictionary_returns_color_components_dictionary
 {
     NSDictionary *colorComponentsDictionary = [UIColor blackColor].toColorComponentsDictionary;
-    NSDictionary *expected = COLOR_COMPONENTS_DICT_FOR( 0.0f, 0.0f, 0.0f, 1.0f );
+    NSDictionary *expected = COLOR_COMPONENTS_DICT_WITH( 0.0f, 0.0f, 0.0f, 1.0f );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor whiteColor].toColorComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 1.0f, 1.0f, 1.0f, 1.0f );
+    expected = COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.0f, 1.0f, 1.0f );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor redColor].toColorComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 1.0f, 0.0f, 0.0f, 1.0f );
+    expected = COLOR_COMPONENTS_DICT_WITH( 1.0f, 0.0f, 0.0f, 1.0f );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor greenColor].toColorComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 0.0f, 1.0f, 0.0f, 1.0f );
+    expected = COLOR_COMPONENTS_DICT_WITH( 0.0f, 1.0f, 0.0f, 1.0f );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor blueColor].toColorComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 0.0f, 0.0f, 1.0f, 1.0f );
+    expected = COLOR_COMPONENTS_DICT_WITH( 0.0f, 0.0f, 1.0f, 1.0f );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor colorWithWhite: 1.0f alpha: 0.0f].toColorComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 1.0f, 1.0f, 1.0f, 0.0f );
+    expected = COLOR_COMPONENTS_DICT_WITH( 1.0f, 1.0f, 1.0f, 0.0f );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor colorWithRed: 1.0f green: 0.0f blue: 1.0f alpha: 0.5f].toColorComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 1.0f, 0.0f, 1.0f, 0.5f );
+    expected = COLOR_COMPONENTS_DICT_WITH( 1.0f, 0.0f, 1.0f, 0.5f );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
 }
 
@@ -1354,31 +1699,31 @@
 -( void )test_toColorByteComponentsDictionary_returns_byte_color_components_dictionary
 {
     NSDictionary *colorComponentsDictionary = [UIColor blackColor].toColorByteComponentsDictionary;
-    NSDictionary *expected = COLOR_COMPONENTS_DICT_FOR( 0, 0, 0, 255 );
+    NSDictionary *expected = COLOR_COMPONENTS_DICT_WITH( 0, 0, 0, 255 );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor whiteColor].toColorByteComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 255, 255, 255, 255 );
+    expected = COLOR_COMPONENTS_DICT_WITH( 255, 255, 255, 255 );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor redColor].toColorByteComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 255, 0, 0, 255 );
+    expected = COLOR_COMPONENTS_DICT_WITH( 255, 0, 0, 255 );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor greenColor].toColorByteComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 0, 255, 0, 255 );
+    expected = COLOR_COMPONENTS_DICT_WITH( 0, 255, 0, 255 );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor blueColor].toColorByteComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 0, 0, 255, 255 );
+    expected = COLOR_COMPONENTS_DICT_WITH( 0, 0, 255, 255 );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor colorWithWhite: 1.0f alpha: 0].toColorByteComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 255, 255, 255, 0 );
+    expected = COLOR_COMPONENTS_DICT_WITH( 255, 255, 255, 0 );
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
     
     colorComponentsDictionary = [UIColor colorWithRed: 1.0f green: 0 blue: 1.0f alpha: 0.5f].toColorByteComponentsDictionary;
-    expected = COLOR_COMPONENTS_DICT_FOR( 255, 0, 255, ( uint8_t )( 0.5f * 255 ));
+    expected = COLOR_COMPONENTS_DICT_WITH( 255, 0, 255, ( uint8_t )( 0.5f * 255 ));
     XCTAssertEqualObjects( colorComponentsDictionary, expected );
 }
 

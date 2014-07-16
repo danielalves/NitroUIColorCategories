@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		127AE726197710B8001EB900 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285048319362DEA002BEC91 /* UIKit.framework */; };
 		1285045819362C1F002BEC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285045719362C1F002BEC91 /* Foundation.framework */; };
 		1285046619362C1F002BEC91 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285046519362C1F002BEC91 /* XCTest.framework */; };
 		1285046719362C1F002BEC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285045719362C1F002BEC91 /* Foundation.framework */; };
-		1285046919362C1F002BEC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285046819362C1F002BEC91 /* UIKit.framework */; };
 		1285046C19362C1F002BEC91 /* libNitroUIColorCategories.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285045419362C1F002BEC91 /* libNitroUIColorCategories.a */; };
 		1285047419362C1F002BEC91 /* NitroUIColorUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285047319362C1F002BEC91 /* NitroUIColorUtilsTests.m */; };
 		1285048219362DCE002BEC91 /* UIColor+Utils_Nitro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285048119362DCE002BEC91 /* UIColor+Utils_Nitro.m */; };
@@ -76,10 +76,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1285046C19362C1F002BEC91 /* libNitroUIColorCategories.a in Frameworks */,
-				1285046619362C1F002BEC91 /* XCTest.framework in Frameworks */,
-				1285046919362C1F002BEC91 /* UIKit.framework in Frameworks */,
-				1285046719362C1F002BEC91 /* Foundation.framework in Frameworks */,
 				36A157D853BB49309267900E /* libPods-NitroUIColorCategoriesTests.a in Frameworks */,
+				1285046719362C1F002BEC91 /* Foundation.framework in Frameworks */,
+				127AE726197710B8001EB900 /* UIKit.framework in Frameworks */,
+				1285046619362C1F002BEC91 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +440,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "NitroUIColorCategoriesTests/NitroUIColorCategoriesTests-Info.plist";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -457,7 +457,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "NitroUIColorCategoriesTests/NitroUIColorCategoriesTests-Info.plist";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
