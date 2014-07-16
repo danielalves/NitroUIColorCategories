@@ -79,7 +79,7 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
 		return nil;
     
     uint32_t argb = [self parseColorFromString: rgbStr];
-    return [UIColor colorFromARGBHex: argb];
+    return [UIColor colorFromARGBHex: argb | 0xFF000000];
 }
 
 +( UIColor * )colorWithRGBAHexString:( NSString * )rgbaStr
