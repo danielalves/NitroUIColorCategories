@@ -17,7 +17,6 @@
 		1285048419362DEA002BEC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285048319362DEA002BEC91 /* UIKit.framework */; };
 		36A157D853BB49309267900E /* libPods-NitroUIColorCategoriesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A0C997E470453FB5B9DE69 /* libPods-NitroUIColorCategoriesTests.a */; };
 		5B2C48C7755344E0BC96EA44 /* libPods-NitroUIColorCategories.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC1330EAA6C4D2EBBB4F24A /* libPods-NitroUIColorCategories.a */; };
-		84B3781EA66741748248F00D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD74930315F403F9067915B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +67,6 @@
 			files = (
 				1285045819362C1F002BEC91 /* Foundation.framework in Frameworks */,
 				1285048419362DEA002BEC91 /* UIKit.framework in Frameworks */,
-				84B3781EA66741748248F00D /* libPods.a in Frameworks */,
 				5B2C48C7755344E0BC96EA44 /* libPods-NitroUIColorCategories.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
