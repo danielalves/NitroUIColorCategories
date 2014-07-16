@@ -4,6 +4,6 @@ before_script:
     - brew upgrade xctool
     - gem install cocoapods
 script
-    - cd NitroUIColorCategories
+    - cd ./NitroUIColorCategories
     - pod install
     - xctool -workspace NitroUIColorCategories.xcworkspace -sdk iphonesimulator -scheme NitroUIColorCategories test
