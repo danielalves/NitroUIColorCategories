@@ -64,7 +64,7 @@
 
 #pragma mark - byteLuminance tests
 
--( void )test_byteLuminance_returns_color_luminance
+-( void )test_byteLuminance_returns_color_byte_luminance
 {
     uint8_t colorLuminance = [UIColor blackColor].byteLuminance;
     XCTAssertEqual( colorLuminance, luminancei( 0, 0, 0 ));
@@ -269,7 +269,7 @@
 
 #pragma mark - toARGBHexString tests
 
--( void )test_toARGBHexString_returns_color_RGBA_hex_string
+-( void )test_toARGBHexString_returns_color_ARGB_hex_string
 {
     NSString *argbHexString = [UIColor blackColor].toARGBHexString;
     XCTAssertEqualObjects( argbHexString, @"0xFF000000" );
