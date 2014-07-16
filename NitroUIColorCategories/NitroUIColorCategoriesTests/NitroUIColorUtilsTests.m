@@ -33,6 +33,214 @@
 
 @implementation NitroUIColorCategoriesTests
 
+#pragma mark - red tests
+
+-( void )test_red_returns_color_red_component
+{
+    CGFloat redComponent = [UIColor blackColor].red;
+    XCTAssertEqual( redComponent, 0.0f );
+    
+    redComponent = [UIColor whiteColor].red;
+    XCTAssertEqual( redComponent, 1.0f );
+    
+    redComponent = [UIColor redColor].red;
+    XCTAssertEqual( redComponent, 1.0f );
+    
+    redComponent = [UIColor greenColor].red;
+    XCTAssertEqual( redComponent, 0.0f );
+    
+    redComponent = [UIColor blueColor].red;
+    XCTAssertEqual( redComponent, 0.0f );
+    
+    redComponent = [UIColor colorWithWhite: 1.0f alpha: 0.0f].red;
+    XCTAssertEqual( redComponent, 1.0f );
+    
+    redComponent = [UIColor colorWithRed: 1.0f green: 0.0f blue: 1.0f alpha: 0.5f].red;
+    XCTAssertEqual( redComponent, 1.0f );
+}
+
+#pragma mark - green tests
+
+-( void )test_green_returns_color_green_component
+{
+    CGFloat greenComponent = [UIColor blackColor].green;
+    XCTAssertEqual( greenComponent, 0.0f );
+    
+    greenComponent = [UIColor whiteColor].green;
+    XCTAssertEqual( greenComponent, 1.0f );
+    
+    greenComponent = [UIColor redColor].green;
+    XCTAssertEqual( greenComponent, 0.0f );
+    
+    greenComponent = [UIColor greenColor].green;
+    XCTAssertEqual( greenComponent, 1.0f );
+    
+    greenComponent = [UIColor blueColor].green;
+    XCTAssertEqual( greenComponent, 0.0f );
+    
+    greenComponent = [UIColor colorWithWhite: 1.0f alpha: 0.0f].green;
+    XCTAssertEqual( greenComponent, 1.0f );
+    
+    greenComponent = [UIColor colorWithRed: 1.0f green: 1.0f blue: 0.0f alpha: 0.5f].green;
+    XCTAssertEqual( greenComponent, 1.0f );
+}
+
+#pragma mark - blue tests
+
+-( void )test_blue_returns_color_blue_component
+{
+    CGFloat blueComponent = [UIColor blackColor].blue;
+    XCTAssertEqual( blueComponent, 0.0f );
+    
+    blueComponent = [UIColor whiteColor].blue;
+    XCTAssertEqual( blueComponent, 1.0f );
+    
+    blueComponent = [UIColor redColor].blue;
+    XCTAssertEqual( blueComponent, 0.0f );
+    
+    blueComponent = [UIColor greenColor].blue;
+    XCTAssertEqual( blueComponent, 0.0f );
+    
+    blueComponent = [UIColor blueColor].blue;
+    XCTAssertEqual( blueComponent, 1.0f );
+    
+    blueComponent = [UIColor colorWithWhite: 1.0f alpha: 0.0f].blue;
+    XCTAssertEqual( blueComponent, 1.0f );
+    
+    blueComponent = [UIColor colorWithRed: 0.0f green: 1.0f blue: 1.0f alpha: 0.5f].blue;
+    XCTAssertEqual( blueComponent, 1.0f );
+}
+
+#pragma mark - alpha tests
+
+-( void )test_alpha_returns_color_alpha_component
+{
+    CGFloat alphaComponent = [UIColor blackColor].alpha;
+    XCTAssertEqual( alphaComponent, 1.0f );
+    
+    alphaComponent = [UIColor whiteColor].alpha;
+    XCTAssertEqual( alphaComponent, 1.0f );
+    
+    alphaComponent = [UIColor redColor].alpha;
+    XCTAssertEqual( alphaComponent, 1.0f );
+    
+    alphaComponent = [UIColor greenColor].alpha;
+    XCTAssertEqual( alphaComponent, 1.0f );
+    
+    alphaComponent = [UIColor blueColor].alpha;
+    XCTAssertEqual( alphaComponent, 1.0f );
+    
+    alphaComponent = [UIColor colorWithWhite: 1.0f alpha: 0.0f].alpha;
+    XCTAssertEqual( alphaComponent, 0.0f );
+    
+    alphaComponent = [UIColor colorWithRed: 0.0f green: 1.0f blue: 1.0f alpha: 0.5f].alpha;
+    XCTAssertEqual( alphaComponent, 0.5f );
+}
+
+#pragma mark - byteRed tests
+
+-( void )test_byteRed_returns_color_red_component_byte_value
+{
+    uint8_t byteRedComponent = [UIColor blackColor].byteRed;
+    XCTAssertEqual( byteRedComponent, 0 );
+    
+    byteRedComponent = [UIColor whiteColor].byteRed;
+    XCTAssertEqual( byteRedComponent, 255 );
+    
+    byteRedComponent = [UIColor redColor].byteRed;
+    XCTAssertEqual( byteRedComponent, 255 );
+    
+    byteRedComponent = [UIColor greenColor].byteRed;
+    XCTAssertEqual( byteRedComponent, 0 );
+    
+    byteRedComponent = [UIColor blueColor].byteRed;
+    XCTAssertEqual( byteRedComponent, 0 );
+    
+    byteRedComponent = [UIColor colorWithWhite: 1.0f alpha: 0].byteRed;
+    XCTAssertEqual( byteRedComponent, 255 );
+    
+    byteRedComponent = [UIColor colorWithRed: 1.0f green: 0 blue: 1.0f alpha: 0.5f].byteRed;
+    XCTAssertEqual( byteRedComponent, 255 );
+}
+
+#pragma mark - byteGreen tests
+
+-( void )test_byteGreen_returns_color_green_component_byte_value
+{
+    uint8_t byteGreenComponent = [UIColor blackColor].byteGreen;
+    XCTAssertEqual( byteGreenComponent, 0 );
+    
+    byteGreenComponent = [UIColor whiteColor].byteGreen;
+    XCTAssertEqual( byteGreenComponent, 255 );
+    
+    byteGreenComponent = [UIColor redColor].byteGreen;
+    XCTAssertEqual( byteGreenComponent, 0 );
+    
+    byteGreenComponent = [UIColor greenColor].byteGreen;
+    XCTAssertEqual( byteGreenComponent, 255 );
+    
+    byteGreenComponent = [UIColor blueColor].byteGreen;
+    XCTAssertEqual( byteGreenComponent, 0 );
+    
+    byteGreenComponent = [UIColor colorWithWhite: 1.0f alpha: 0.0f].byteGreen;
+    XCTAssertEqual( byteGreenComponent, 255 );
+    
+    byteGreenComponent = [UIColor colorWithRed: 1.0f green: 1.0f blue: 0.0f alpha: 0.5f].byteGreen;
+    XCTAssertEqual( byteGreenComponent, 255 );
+}
+
+#pragma mark - byteBlue tests
+
+-( void )test_byteBlue_returns_color_blue_component_byte_value
+{
+    CGFloat byteBlueComponent = [UIColor blackColor].byteBlue;
+    XCTAssertEqual( byteBlueComponent, 0 );
+    
+    byteBlueComponent = [UIColor whiteColor].byteBlue;
+    XCTAssertEqual( byteBlueComponent, 255 );
+    
+    byteBlueComponent = [UIColor redColor].byteBlue;
+    XCTAssertEqual( byteBlueComponent, 0 );
+    
+    byteBlueComponent = [UIColor greenColor].byteBlue;
+    XCTAssertEqual( byteBlueComponent, 0 );
+    
+    byteBlueComponent = [UIColor blueColor].byteBlue;
+    XCTAssertEqual( byteBlueComponent, 255 );
+    
+    byteBlueComponent = [UIColor colorWithWhite: 1.0f alpha: 0.0f].byteBlue;
+    XCTAssertEqual( byteBlueComponent, 255 );
+    
+    byteBlueComponent = [UIColor colorWithRed: 0.0f green: 1.0f blue: 1.0f alpha: 0.5f].byteBlue;
+    XCTAssertEqual( byteBlueComponent, 255 );
+}
+
+#pragma mark - byteAlpha tests
+
+-( void )test_byteAlpha_returns_color_alpha_component_byte_value
+{
+    CGFloat byteAlphaComponent = [UIColor blackColor].byteAlpha;
+    XCTAssertEqual( byteAlphaComponent, 255 );
+    
+    byteAlphaComponent = [UIColor whiteColor].byteAlpha;
+    XCTAssertEqual( byteAlphaComponent, 255 );
+    
+    byteAlphaComponent = [UIColor redColor].byteAlpha;
+    XCTAssertEqual( byteAlphaComponent, 255 );
+    
+    byteAlphaComponent = [UIColor greenColor].byteAlpha;
+    XCTAssertEqual( byteAlphaComponent, 255 );
+    
+    byteAlphaComponent = [UIColor blueColor].byteAlpha;
+    XCTAssertEqual( byteAlphaComponent, 255 );
+    
+    byteAlphaComponent = [UIColor colorWithWhite: 1.0f alpha: 0.0f].byteAlpha;
+    XCTAssertEqual( byteAlphaComponent, 0 );
+    
+    byteAlphaComponent = [UIColor colorWithRed: 0.0f green: 1.0f blue: 1.0f alpha: 0.5f].byteAlpha;
+    XCTAssertEqual( byteAlphaComponent, ( uint8_t )( 0.5f * 255 ) );
+}
+
 #pragma mark - luminance tests
 
 -( void )test_luminance_returns_color_luminance
@@ -47,10 +255,10 @@
     XCTAssertEqual( colorLuminance, luminance( 1.0f, 0.0f, 0.0f ));
     
     colorLuminance = [UIColor greenColor].luminance;
-    XCTAssertEqual( colorLuminance, luminance( 0.0f, 1.0f, 0.0f ) );
+    XCTAssertEqual( colorLuminance, luminance( 0.0f, 1.0f, 0.0f ));
     
     colorLuminance = [UIColor blueColor].luminance;
-    XCTAssertEqual( colorLuminance, luminance( 0.0f, 0.0f, 1.0f ) );
+    XCTAssertEqual( colorLuminance, luminance( 0.0f, 0.0f, 1.0f ));
 }
 
 -( void )test_luminance_ignores_alpha_component
