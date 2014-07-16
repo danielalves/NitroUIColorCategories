@@ -11,6 +11,9 @@
 // NitroUIColorCategories
 #import "UIColor+Utils_Nitro.h"
 
+// pods
+#import <NitroMath/NTRMath.h>
+
 #pragma mark - Helper Macros
 
 #define COLOR_COMPONENTS_DICT_FOR( red, green, blue, alpha ) \
@@ -29,6 +32,64 @@
 #pragma mark - Implementation
 
 @implementation NitroUIColorCategoriesTests
+
+#pragma mark - luminance tests
+
+-( void )test_luminance_returns_color_luminance
+{
+    CGFloat colorLuminance = [UIColor blackColor].luminance;
+    XCTAssertEqual( colorLuminance, luminance( 0.0f, 0.0f, 0.0f ));
+    
+    colorLuminance = [UIColor whiteColor].luminance;
+    XCTAssertEqual( colorLuminance, luminance( 1.0f, 1.0f, 1.0f ));
+    
+    colorLuminance = [UIColor redColor].luminance;
+    XCTAssertEqual( colorLuminance, luminance( 1.0f, 0.0f, 0.0f ));
+    
+    colorLuminance = [UIColor greenColor].luminance;
+    XCTAssertEqual( colorLuminance, luminance( 0.0f, 1.0f, 0.0f ) );
+    
+    colorLuminance = [UIColor blueColor].luminance;
+    XCTAssertEqual( colorLuminance, luminance( 0.0f, 0.0f, 1.0f ) );
+}
+
+-( void )test_luminance_ignores_alpha_component
+{
+    CGFloat colorLuminance = [UIColor colorWithWhite: 1.0f alpha: 0.0f].luminance;
+    XCTAssertEqual( colorLuminance, luminance( 1.0f, 1.0f, 1.0f ));
+    
+    colorLuminance = [UIColor colorWithRed: 1.0f green: 0.0f blue: 1.0f alpha: 0.5f].luminance;
+    XCTAssertEqual( colorLuminance, luminance( 1.0f, 0.0f, 1.0f ));
+}
+
+#pragma mark - byteLuminance tests
+
+-( void )test_byteLuminance_returns_color_luminance
+{
+    uint8_t colorLuminance = [UIColor blackColor].byteLuminance;
+    XCTAssertEqual( colorLuminance, luminancei( 0, 0, 0 ));
+    
+    colorLuminance = [UIColor whiteColor].byteLuminance;
+    XCTAssertEqual( colorLuminance, luminancei( 255, 255, 255 ));
+    
+    colorLuminance = [UIColor redColor].byteLuminance;
+    XCTAssertEqual( colorLuminance, luminancei( 255, 0, 0 ));
+    
+    colorLuminance = [UIColor greenColor].byteLuminance;
+    XCTAssertEqual( colorLuminance, luminancei( 0, 255, 0 ));
+    
+    colorLuminance = [UIColor blueColor].byteLuminance;
+    XCTAssertEqual( colorLuminance, luminancei( 0, 0, 255 ));
+}
+
+-( void )test_byteLuminance_ignores_alpha_component
+{
+    uint8_t colorLuminance = [UIColor colorWithWhite: 1.0f alpha: 0.0f].byteLuminance;
+    XCTAssertEqual( colorLuminance, luminancei( 255, 255, 255 ));
+    
+    colorLuminance = [UIColor colorWithRed: 1.0f green: 0.0f blue: 1.0f alpha: 0.5f].byteLuminance;
+    XCTAssertEqual( colorLuminance, luminancei( 255, 0.0f, 255 ));
+}
 
 #pragma mark - toRGBAHex tests
 
