@@ -1,2 +1,9 @@
-pod "NitroMath"
-pod "NitroNSDictionaryCategories"
+
+target :NitroUIColorCategories do
+	pod "NitroMath"
+	pod "NitroNSDictionaryCategories"
+end
+
+target :NitroUIColorCategoriesTests do
+	pod "NitroMath"
+end

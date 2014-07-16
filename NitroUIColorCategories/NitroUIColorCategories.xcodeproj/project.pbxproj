@@ -15,6 +15,8 @@
 		1285047419362C1F002BEC91 /* NitroUIColorUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285047319362C1F002BEC91 /* NitroUIColorUtilsTests.m */; };
 		1285048219362DCE002BEC91 /* UIColor+Utils_Nitro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285048119362DCE002BEC91 /* UIColor+Utils_Nitro.m */; };
 		1285048419362DEA002BEC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1285048319362DEA002BEC91 /* UIKit.framework */; };
+		36A157D853BB49309267900E /* libPods-NitroUIColorCategoriesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A0C997E470453FB5B9DE69 /* libPods-NitroUIColorCategoriesTests.a */; };
+		5B2C48C7755344E0BC96EA44 /* libPods-NitroUIColorCategories.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC1330EAA6C4D2EBBB4F24A /* libPods-NitroUIColorCategories.a */; };
 		84B3781EA66741748248F00D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD74930315F403F9067915B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,10 @@
 		1285048119362DCE002BEC91 /* UIColor+Utils_Nitro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils_Nitro.m"; sourceTree = "<group>"; };
 		1285048319362DEA002BEC91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CD74930315F403F9067915B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		87A0C997E470453FB5B9DE69 /* libPods-NitroUIColorCategoriesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NitroUIColorCategoriesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F969D64DCAC422A9AD76B5D /* Pods-NitroUIColorCategoriesTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NitroUIColorCategoriesTests.xcconfig"; path = "Pods/Pods-NitroUIColorCategoriesTests.xcconfig"; sourceTree = "<group>"; };
+		E5B390E6EA8B4108A33BC2A9 /* Pods-NitroUIColorCategories.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NitroUIColorCategories.xcconfig"; path = "Pods/Pods-NitroUIColorCategories.xcconfig"; sourceTree = "<group>"; };
+		EFC1330EAA6C4D2EBBB4F24A /* libPods-NitroUIColorCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NitroUIColorCategories.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F808AC8B6AD04165A6B8FF67 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +69,7 @@
 				1285045819362C1F002BEC91 /* Foundation.framework in Frameworks */,
 				1285048419362DEA002BEC91 /* UIKit.framework in Frameworks */,
 				84B3781EA66741748248F00D /* libPods.a in Frameworks */,
+				5B2C48C7755344E0BC96EA44 /* libPods-NitroUIColorCategories.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,7 @@
 				1285046619362C1F002BEC91 /* XCTest.framework in Frameworks */,
 				1285046919362C1F002BEC91 /* UIKit.framework in Frameworks */,
 				1285046719362C1F002BEC91 /* Foundation.framework in Frameworks */,
+				36A157D853BB49309267900E /* libPods-NitroUIColorCategoriesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +96,8 @@
 				1285045619362C1F002BEC91 /* Frameworks */,
 				1285045519362C1F002BEC91 /* Products */,
 				F808AC8B6AD04165A6B8FF67 /* Pods.xcconfig */,
+				E5B390E6EA8B4108A33BC2A9 /* Pods-NitroUIColorCategories.xcconfig */,
+				8F969D64DCAC422A9AD76B5D /* Pods-NitroUIColorCategoriesTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +118,8 @@
 				1285046519362C1F002BEC91 /* XCTest.framework */,
 				1285046819362C1F002BEC91 /* UIKit.framework */,
 				6CD74930315F403F9067915B /* libPods.a */,
+				EFC1330EAA6C4D2EBBB4F24A /* libPods-NitroUIColorCategories.a */,
+				87A0C997E470453FB5B9DE69 /* libPods-NitroUIColorCategoriesTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1285047A19362C1F002BEC91 /* Build configuration list for PBXNativeTarget "NitroUIColorCategoriesTests" */;
 			buildPhases = (
+				13B20973A792438E99F62A43 /* Check Pods Manifest.lock */,
 				1285046019362C1F002BEC91 /* Sources */,
 				1285046119362C1F002BEC91 /* Frameworks */,
 				1285046219362C1F002BEC91 /* Resources */,
+				281DA1820F7447E6A0DE51BF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,6 +235,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		13B20973A792438E99F62A43 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		281DA1820F7447E6A0DE51BF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-NitroUIColorCategoriesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		41A9BE69EA91485E8BF2C75D /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,7 +277,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-NitroUIColorCategories-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A228FEA7C1E340668ED50267 /* Check Pods Manifest.lock */ = {
@@ -361,11 +405,11 @@
 		};
 		1285047819362C1F002BEC91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F808AC8B6AD04165A6B8FF67 /* Pods.xcconfig */;
+			baseConfigurationReference = E5B390E6EA8B4108A33BC2A9 /* Pods-NitroUIColorCategories.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/NitroUIColorCategories.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -373,11 +417,11 @@
 		};
 		1285047919362C1F002BEC91 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F808AC8B6AD04165A6B8FF67 /* Pods.xcconfig */;
+			baseConfigurationReference = E5B390E6EA8B4108A33BC2A9 /* Pods-NitroUIColorCategories.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/NitroUIColorCategories.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -385,6 +429,7 @@
 		};
 		1285047B19362C1F002BEC91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F969D64DCAC422A9AD76B5D /* Pods-NitroUIColorCategoriesTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -397,6 +442,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "NitroUIColorCategoriesTests/NitroUIColorCategoriesTests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -404,6 +450,7 @@
 		};
 		1285047C19362C1F002BEC91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F969D64DCAC422A9AD76B5D /* Pods-NitroUIColorCategoriesTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -412,6 +459,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "NitroUIColorCategoriesTests/NitroUIColorCategoriesTests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
