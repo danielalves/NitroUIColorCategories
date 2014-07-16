@@ -1,3 +1,4 @@
+platform :ios, '4.3'
 
 target :NitroUIColorCategories do
 	pod "NitroMath"
@@ -7,3 +8,4 @@ end
 target :NitroUIColorCategoriesTests do
 	pod "NitroMath"
 end
+
