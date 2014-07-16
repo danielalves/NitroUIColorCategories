@@ -1785,42 +1785,6 @@
 
 #pragma mark - toARGBHexString tests
 
-
-
-
-
--( void )bla
-{
-UIColor *white = [UIColor whiteColor];
-[white componentsAreEqualToComponentsOfColor: [UIColor colorWithByteRed: 255
-                                                              byteGreen: 255
-                                                               byteBlue: 255]]; // YES
-    
-[white componentsAreEqualToComponentsOfColor: [UIColor colorWithRed: 1.0f
-                                                              green: 1.0f
-                                                               blue: 1.0f
-                                                              alpha: 1.0f]]; // YES
-    
-[white componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 1.0f
-                                                                alpha: 1.0f]]; // YES
-    
-[white componentsAreEqualToComponentsOfColor: [UIColor colorWithByteRed: 255
-                                                              byteGreen: 255
-                                                               byteBlue: 255
-                                                              byteAlpha: 0]]; // NO
-    
-[white componentsAreEqualToComponentsOfColor: [UIColor colorWithWhite: 1.0f
-                                                                alpha: 0.0f]]; // NO
-// ...
-}
-
-
-
-
-
-
-
-
 -( void )test_toARGBHexString_returns_color_ARGB_hex_string
 {
     NSString *argbHexString = [UIColor blackColor].toARGBHexString;
