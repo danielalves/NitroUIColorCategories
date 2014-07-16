@@ -105,16 +105,16 @@ NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA  = @"a";
     CGFloat r = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] floatValue], 0.0f, 1.0f );
     CGFloat g = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] floatValue], 0.0f, 1.0f );
     CGFloat b = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_BLUE] floatValue], 0.0f, 1.0f );
-    uint8_t a = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_ALPHA] floatValue], 0.0f, 1.0f );
+    CGFloat a = clamp( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_ALPHA] floatValue], 0.0f, 1.0f );
     return [self colorWithRed: r green: g blue: b alpha: a];
 }
 
 +( UIColor * )colorFromColorByteComponentsDictionary:( NSDictionary * )colorDict
 {
-    uint8_t r = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] unsignedCharValue];
-    uint8_t g = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] unsignedCharValue];
-    uint8_t b = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_BLUE] unsignedCharValue];
-    uint8_t a = [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_ALPHA] unsignedCharValue];
+    uint8_t r = clampi( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_RED] intValue], 0, 255 );
+    uint8_t g = clampi( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_GREEN] intValue], 0, 255 );
+    uint8_t b = clampi( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_BLUE] intValue], 0, 255 );
+    uint8_t a = clampi( [[colorDict numberForKey: COLOR_DICT_COMPONENT_KEY_ALPHA] intValue], 0, 255 );
     return [self colorWithByteRed: r byteGreen: g byteBlue: b byteAlpha: a];
 }
 
