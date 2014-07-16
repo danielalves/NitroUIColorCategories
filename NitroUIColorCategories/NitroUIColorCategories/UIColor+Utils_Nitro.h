@@ -151,6 +151,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
 /**
  *  Creates a new UIColor object with the specified color components.
  *  Values below 0.0 are interpreted as 0.0, and values above 1.0 are interpreted as 1.0.
+ *  Missing components will be set as 0.0.
  *
  *  @param colorDict A dictionary containing one key for each color component. All values must be of float type
  *                   in the range [0.0, 1.0]. The components must be indexed with the constants COLOR_DICT_COMPONENT_KEY_RED,
@@ -162,6 +163,8 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
 
 /**
  *  Creates a new UIColor object with the specified color components.
+ *  Values below 0 are interpreted as 0, and values above 255 are interpreted as 255.
+ *  Missing components will be set as 0.
  *
  *  @param colorDict A dictionary containing one key for each color component. All values must be of uint8_t type
  *                   in the range [0, 255]. The components must be indexed with the constants COLOR_DICT_COMPONENT_KEY_RED,
