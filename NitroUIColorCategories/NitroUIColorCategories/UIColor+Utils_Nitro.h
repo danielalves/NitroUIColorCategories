@@ -90,9 +90,8 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Creates a new UIColor object with the specified color components. The alpha
  *  component will be equal to 1.0.
  *
- *
  *  @param rgb A number which hexadecimal value represents the color in the format RRGGBB. The most significant 
- *             byte is ignored.
+ *             byte is ignored and the color will be fully opaque.
  *
  *  @return A new UIColor object with the specified color components.
  */
@@ -117,9 +116,13 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
 +( UIColor * )colorFromARGBHex:( uint32_t )argb;
 
 /**
- *  Creates a new UIColor object with the specified color components.
+ *  Creates a new UIColor object with the specified color components. The color will
+ *  be fully opaque.
  *
  *  @param rgbStr A string with the format 0xRRGGBB representing the color hexadecimal number.
+ *                The prefix '0x' is not necessary. So @"0xFF0000" is the same as @"FF0000".
+ *                If you pass a string with the format 0xAARRGGBB, the alpha part will be ignored
+ *                and the color will be fully opaque.
  *
  *  @return A new UIColor object with the specified color components.
  */
@@ -129,6 +132,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Creates a new UIColor object with the specified color components.
  *
  *  @param rgbaStr A string with the format 0xRRGGBBAA representing the color hexadecimal number.
+ *                 The prefix '0x' is not necessary. So @"0xFF0000FF" is the same as @"FF0000FF".
  *
  *  @return A new UIColor object with the specified color components.
  */
@@ -138,6 +142,7 @@ FOUNDATION_EXPORT NSString * const COLOR_DICT_COMPONENT_KEY_ALPHA;
  *  Creates a new UIColor object with the specified color components.
  *
  *  @param argbStr A string with the format 0xAARRGGBB representing the color hexadecimal number.
+ *                 The prefix '0x' is not necessary. So @"0xFFFF0000" is the same as @"FFFF0000".
  *
  *  @return A new UIColor object with the specified color components.
  */
