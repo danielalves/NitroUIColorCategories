@@ -1,7 +1,7 @@
 language: objective-c
 before_script:
     - brew update
-    - brew upgrade xctool
+    - brew install xctool && brew cleanup xctool
     - gem install cocoapods
 script:
     - cd NitroUIColorCategories
