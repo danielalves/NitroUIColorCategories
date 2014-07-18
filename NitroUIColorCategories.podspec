@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NitroUIColorCategories"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Initialization, conversion, comparison, RGBA components and luminance getters for iOS UIColor type."
   s.homepage     = "http://github.com/danielalves/NitroUIColorCategories"
   s.license      = { :type => "MIT", :file => "LICENSE" }
