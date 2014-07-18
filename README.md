@@ -158,7 +158,7 @@ it simply add the following line to your Podfile:
 pod "NitroUIColorCategories"
 ```
 
-**Don't forget to add the** `-ObjC` **linker flag to targets using NitroUIColorCategories.** If you don't do so, there'll probably be linker errors. For more info about categories inside static libraries, see: [Building Objective-C static libraries with categories](https://developer.apple.com/library/mac/qa/qa1490/_index.html)
+**NitroUIColorCategories** adds the `-ObjC` linker flag to targets using it. Without it, categories code would be stripped out, resulting in linker errors. For more info about categories inside static libraries, see: [Building Objective-C static libraries with categories](https://developer.apple.com/library/mac/qa/qa1490/_index.html)
 
 Author
 ------
