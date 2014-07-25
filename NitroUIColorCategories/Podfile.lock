@@ -1,13 +1,13 @@
 PODS:
   - NitroMath (1.1.0)
-  - NitroNSDictionaryCategories (1.0.0)
+  - NitroNSDictionaryCategories (1.1.0)
 
 DEPENDENCIES:
-  - NitroMath
-  - NitroNSDictionaryCategories
+  - NitroMath (~> 1.1.0)
+  - NitroNSDictionaryCategories (~> 1.1.0)
 
 SPEC CHECKSUMS:
   NitroMath: c6cb000bf4f653bf444125d125a1d6604093179e
-  NitroNSDictionaryCategories: 1d6dbad105c86fc66ae74f9aaa928993c8a7f05e
+  NitroNSDictionaryCategories: 2259fcd242bba50d8004f65defe41328194feed4
 
 COCOAPODS: 0.33.1
