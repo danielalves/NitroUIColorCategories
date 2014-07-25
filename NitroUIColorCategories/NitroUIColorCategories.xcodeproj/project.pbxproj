@@ -25,9 +25,8 @@
 				<string>1285046D19362C1F002BEC91</string>
 				<string>1285045619362C1F002BEC91</string>
 				<string>1285045519362C1F002BEC91</string>
-				<string>F808AC8B6AD04165A6B8FF67</string>
-				<string>E5B390E6EA8B4108A33BC2A9</string>
-				<string>8F969D64DCAC422A9AD76B5D</string>
+				<string>7AFDB7D51C8B4DFF813A9676</string>
+				<string>9EA7BAB9C38C4A91938B9A1F</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -116,8 +115,7 @@
 			<array>
 				<string>1285045819362C1F002BEC91</string>
 				<string>1285048419362DEA002BEC91</string>
-				<string>5B2C48C7755344E0BC96EA44</string>
-				<string>4E62985B14234235A1A35E60</string>
+				<string>C0C7D7DA8D85435E88F3A09B</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -145,11 +143,11 @@
 			<string>1285047719362C1F002BEC91</string>
 			<key>buildPhases</key>
 			<array>
-				<string>A228FEA7C1E340668ED50267</string>
+				<string>CDFBE8D1185B44D6A3AE0F50</string>
 				<string>1285045019362C1F002BEC91</string>
 				<string>1285045119362C1F002BEC91</string>
 				<string>1285045219362C1F002BEC91</string>
-				<string>41A9BE69EA91485E8BF2C75D</string>
+				<string>DB625AABE6BA427B9A57BA9C</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -200,10 +198,8 @@
 				<string>1285048319362DEA002BEC91</string>
 				<string>1285045719362C1F002BEC91</string>
 				<string>1285046519362C1F002BEC91</string>
-				<string>1285046819362C1F002BEC91</string>
-				<string>6CD74930315F403F9067915B</string>
-				<string>EFC1330EAA6C4D2EBBB4F24A</string>
-				<string>87A0C997E470453FB5B9DE69</string>
+				<string>3EA35D8BBC394EBAB0B3A1A0</string>
+				<string>23A5AD7B7ECB48289CDC9DD7</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -266,10 +262,10 @@
 			<key>files</key>
 			<array>
 				<string>1285046C19362C1F002BEC91</string>
-				<string>36A157D853BB49309267900E</string>
 				<string>1285046719362C1F002BEC91</string>
 				<string>127AE726197710B8001EB900</string>
 				<string>1285046619362C1F002BEC91</string>
+				<string>7BA3157F0902426C94552C4E</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -293,11 +289,11 @@
 			<string>1285047A19362C1F002BEC91</string>
 			<key>buildPhases</key>
 			<array>
-				<string>13B20973A792438E99F62A43</string>
+				<string>B61C5246237B4C42A1CFEB9E</string>
 				<string>1285046019362C1F002BEC91</string>
 				<string>1285046119362C1F002BEC91</string>
 				<string>1285046219362C1F002BEC91</string>
-				<string>281DA1820F7447E6A0DE51BF</string>
+				<string>4112D76DF498468AB64A200A</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -355,19 +351,6 @@
 			<string>1285045719362C1F002BEC91</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>1285046819362C1F002BEC91</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
 		</dict>
 		<key>1285046A19362C1F002BEC91</key>
 		<dict>
@@ -612,7 +595,7 @@
 		<key>1285047819362C1F002BEC91</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>F808AC8B6AD04165A6B8FF67</string>
+			<string>7AFDB7D51C8B4DFF813A9676</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>DSTROOT</key>
@@ -634,7 +617,7 @@
 		<key>1285047919362C1F002BEC91</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>F808AC8B6AD04165A6B8FF67</string>
+			<string>7AFDB7D51C8B4DFF813A9676</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>DSTROOT</key>
@@ -670,7 +653,7 @@
 		<key>1285047B19362C1F002BEC91</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>8F969D64DCAC422A9AD76B5D</string>
+			<string>9EA7BAB9C38C4A91938B9A1F</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>FRAMEWORK_SEARCH_PATHS</key>
@@ -703,7 +686,7 @@
 		<key>1285047C19362C1F002BEC91</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>8F969D64DCAC422A9AD76B5D</string>
+			<string>9EA7BAB9C38C4A91938B9A1F</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>FRAMEWORK_SEARCH_PATHS</key>
@@ -781,37 +764,33 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>13B20973A792438E99F62A43</key>
+		<key>23A5AD7B7ECB48289CDC9DD7</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
 			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-NitroUIColorCategoriesTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>281DA1820F7447E6A0DE51BF</key>
+		<key>3EA35D8BBC394EBAB0B3A1A0</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-NitroUIColorCategories.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4112D76DF498468AB64A200A</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -835,78 +814,29 @@ fi
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>36A157D853BB49309267900E</key>
+		<key>7AFDB7D51C8B4DFF813A9676</key>
 		<dict>
-			<key>fileRef</key>
-			<string>87A0C997E470453FB5B9DE69</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>41A9BE69EA91485E8BF2C75D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
 			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
+			<string>Pods-NitroUIColorCategories.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods-NitroUIColorCategories.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4E62985B14234235A1A35E60</key>
+		<key>7BA3157F0902426C94552C4E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>6CD74930315F403F9067915B</string>
+			<string>23A5AD7B7ECB48289CDC9DD7</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>5B2C48C7755344E0BC96EA44</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EFC1330EAA6C4D2EBBB4F24A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6CD74930315F403F9067915B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>87A0C997E470453FB5B9DE69</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-NitroUIColorCategoriesTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>8F969D64DCAC422A9AD76B5D</key>
+		<key>9EA7BAB9C38C4A91938B9A1F</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -921,7 +851,7 @@ fi
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A228FEA7C1E340668ED50267</key>
+		<key>B61C5246237B4C42A1CFEB9E</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -951,48 +881,66 @@ fi
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>E5B390E6EA8B4108A33BC2A9</key>
+		<key>C0C7D7DA8D85435E88F3A09B</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>3EA35D8BBC394EBAB0B3A1A0</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-NitroUIColorCategories.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods-NitroUIColorCategories.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>EFC1330EAA6C4D2EBBB4F24A</key>
+		<key>CDFBE8D1185B44D6A3AE0F50</key>
 		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-NitroUIColorCategories.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
 		</dict>
-		<key>F808AC8B6AD04165A6B8FF67</key>
+		<key>DB625AABE6BA427B9A57BA9C</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
+			<string>PBXShellScriptBuildPhase</string>
 			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-NitroUIColorCategories-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
