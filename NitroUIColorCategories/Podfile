@@ -1,11 +1,7 @@
 platform :ios, '4.3'
 
+pod 'NitroMath', '~> 1.1.0'
+
 target :NitroUIColorCategories do
-	pod "NitroMath"
-	pod "NitroNSDictionaryCategories"
+	pod 'NitroNSDictionaryCategories', '~> 1.1.0'
 end
-
-target :NitroUIColorCategoriesTests do
-	pod "NitroMath"
-end
-
