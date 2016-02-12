@@ -1,6 +1,6 @@
 NitroUIColorCategories
 ======================
-[![Cocoapods](https://cocoapod-badges.herokuapp.com/v/NitroUIColorCategories/badge.png)](http://cocoapods.org/?q=NitroUIColorCategories)
+[![CocoaPods](https://cocoapod-badges.herokuapp.com/v/NitroUIColorCategories/badge.png)](http://cocoapods.org/?q=NitroUIColorCategories)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/NitroUIColorCategories/badge.png)](http://cocoadocs.org/docsets/NitroUIColorCategories)
 [![TravisCI](https://travis-ci.org/danielalves/NitroUIColorCategories.svg?branch=master)](https://travis-ci.org/danielalves/NitroUIColorCategories)
 
